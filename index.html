@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Классика Массажа — массаж с врачебным подходом, Новосибирск</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+<link rel="manifest" href="img/favicon/site.webmanifest"> <!-- опционально -->
+<meta name="theme-color" content="#133B2A">
+
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
   <!-- Tailwind CDN -->
@@ -76,6 +84,15 @@
 		opacity:0; pointer-events:none;
 	}
 
+
+	#service-modal .bg-white{
+  animation: modalIn .25s ease-out;
+}
+@keyframes modalIn{
+  from{transform: translateY(20px) scale(.98); opacity:0;}
+  to{transform: translateY(0) scale(1); opacity:1;}
+}
+
   </style>
 </head>
 <body class="font-[Montserrat] text-textDark bg-white">
@@ -142,25 +159,20 @@
   <div class="max-w-6xl mx-auto px-6 reveal">
     <h2 class="text-3xl md:text-4xl font-semibold mb-12">Услуги</h2>
 
-    <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <!-- 1. Общий массаж классика -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="1">
+      <!-- Карточка-шаблон: короткий текст на затемнённой фотке, полный текст спрятан внутри .service-full -->
+      <!-- 1 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/obshiy.JPG" alt="Общий массаж классика" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <!-- коротко -->
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Общий массаж классика</h3>
-          <p class="text-sm leading-5 opacity-90">Универсальное оздоровление: снимает напряжение, улучшает кровообращение и общее самочувствие.</p>
+          <p class="text-sm opacity-90 leading-5">Универсальное оздоровление: снимает напряжение, улучшает кровообращение и самочувствие.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <!-- полно -->
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Общий массаж классика</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — универсальный метод оздоровления, направленный на улучшение общего состояния организма, снятие напряжения и стимуляцию кровообращения.
 
 Классический массаж включает в себя:
@@ -177,25 +189,20 @@
 Классический массаж часто назначается как профилактическая и поддерживающая мера при болях в спине, шее, пояснице, а также в рамках реабилитации. 
 
 Подходит практически всем — и тем, кто хочет просто расслабиться, и тем, кому важно восстановление тела в комфортном и щадящем режиме.
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 2. Глубокомышечный триггерный массаж -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="2">
+      <!-- 2 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/glubokiy.JPG" alt="Глубокомышечный триггерный массаж" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Глубокомышечный триггерный массаж</h3>
-          <p class="text-sm leading-5 opacity-90">Глубокая проработка мышц, снятие спазмов и устранение триггерных точек.</p>
+          <p class="text-sm opacity-90 leading-5">Глубокая проработка мышц, снятие спазмов и устранение триггерных точек.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Глубокомышечный триггерный массаж</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — высокоэффективный метод устранения хронических мышечных дискомфортов и восстановления нормального функционирования мышц.
 
 Данный вид массажа направлен на: глубокую проработку, снятие гипертонуса, вытягивание и расслабление укороченных в следствии спазмирования мышц, устранение триггерных точек.
@@ -215,25 +222,20 @@
 • повышение общего тонуса организма: процедура заряжает энергией, улучшает настроение и повышает работоспособность
 
 • стимуляция иммунной системы: активизация точек способствует укреплению иммунитета и повышению сопротивляемости организма к болезням
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 3. Расслабляющий массаж -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="3">
+      <!-- 3 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/raslab.JPG" alt="Расслабляющий массаж" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Расслабляющий массаж</h3>
-          <p class="text-sm leading-5 opacity-90">Снимает физическое и нервное напряжение, восстанавливает гармонию тела и ума.</p>
+          <p class="text-sm opacity-90 leading-5">Снимает физическое и нервное напряжение, восстанавливает гармонию тела и ума.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Расслабляющий массаж</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — процедура, позволяющая снять физическое и нервное напряжение, расслабить мышцы, улучшить настроение, повысить иммунитет.
 
 Такой вид массажа безболезнен, все движения плавные и медленные.
@@ -248,25 +250,20 @@
 • снижение работоспособности
 • синдром хронической усталости (физической и эмоциональной)
 • бессонница
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 4. Массаж ШВЗ, лица, головы -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="4">
+      <!-- 4 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/lico.JPG" alt="Массаж ШВЗ, лица, головы" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Массаж ШВЗ, лица, головы</h3>
-          <p class="text-sm leading-5 opacity-90">Деликатное снятие напряжения, улучшение микроциркуляции и нормализация сна.</p>
+          <p class="text-sm opacity-90 leading-5">Деликатное снятие напряжения, улучшение микроциркуляции и нормализация сна.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Массаж шейно-воротниковой зоны, лица, головы</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — деликатный, но эффективный метод снятия напряжения, улучшения микроциркуляции и общего самочувствия.
 
 Этот вид массажа включает работу с:
@@ -282,25 +279,20 @@
 • нормализацию сна и уменьшение уровня стресса
 
 Массаж лица и головы мягко влияет на нервную систему, снижая уровень тревожности и усталости.
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 5. Антицеллюлитный массаж -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="5">
+      <!-- 5 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h/[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/cilulit.JPG" alt="Антицеллюлитный массаж" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Антицеллюлитный массаж</h3>
-          <p class="text-sm leading-5 opacity-90">Безоперационная борьба с несовершенствами кожи, активизация обмена и лимфотока.</p>
+          <p class="text-sm opacity-90 leading-5">Активизация обмена, лимфодренаж и улучшение качества кожи без операций.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Антицеллюлитный массаж</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — безоперационный метод борьбы с визуальными несовершенствами кожи.
 
 Массаж выполняется на всех проблемных участках тела и представляет собой комбинацию разогревающих, разминающих, вибрационных движений.
@@ -312,25 +304,20 @@
 • улучшению тургора кожи
 • выведению лишней межклеточной жидкости
 • увеличению выработки коллагена и эластина
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 6. Массаж спины -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="6">
+      <!-- 6 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/spina.JPG" alt="Массаж спины" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Массаж спины</h3>
-          <p class="text-sm leading-5 opacity-90">Работа с мышцами шеи, плеч, лопаток и поясницы для снятия боли и скованности.</p>
+          <p class="text-sm opacity-90 leading-5">Шея, плечи, лопатки и поясница — снимаем боль, отёки и скованность.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Массаж спины</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — подразумевает воздействие на мышцы шеи и плеч, лопаточной области, прямые и косые мышцы спины и пояснично-крестцовый отдел.
 
 Процедура позволяет: 
@@ -339,25 +326,20 @@
 • усилить циркуляцию крови
 • улучшить состояние подкожно-жировой клетчатки
 • повысить работоспособность организма
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 7. Парный массаж -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="7">
+      <!-- 7 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/parniy.JPG" alt="Парный массаж" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Парный массаж</h3>
-          <p class="text-sm leading-5 opacity-90">Совместный ритуал для тела и эмоций: два мастера, один ритм, полная гармония.</p>
+          <p class="text-sm opacity-90 leading-5">Два мастера, единый ритм — отдых и гармония для двоих.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Парный массаж</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — это совместный ритуал, который помогает восстановить не только тело, но и эмоциональную связь между близкими.
 
 Во время парного массажа вы находитесь в одном кабинете с партнёром — в уютной атмосфере, под расслабляющую музыку, рядом с тем, кто вам дорог.
@@ -374,25 +356,20 @@
 • провести время вдвоём с пользой для здоровья
 
 Подходит для пар, друзей, родных. Идеальный выбор, если хочется подарить совместный отдых, объединённый заботой и тёплым прикосновением!
-          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- 8. Мануальная терапия -->
-      <div class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group" data-service="8">
+      <!-- 8 -->
+      <article class="service-card relative rounded-xl2 overflow-hidden h-[360px] md:h-[420px] cursor-pointer shadow-lg group">
         <img src="img/services/manual.JPG" alt="Мануальная терапия" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/60 transition group-hover:bg-black/50"></div>
-
-        <div class="service-short relative z-10 p-6 text-white flex flex-col justify-end h-full transition-opacity duration-300">
+        <div class="relative z-10 p-6 text-white flex flex-col justify-end h-full">
           <h3 class="text-xl font-semibold mb-2">Мануальная терапия</h3>
-          <p class="text-sm leading-5 opacity-90">Комплекс методик для восстановления подвижности суставов и снятия болевых синдромов.</p>
+          <p class="text-sm opacity-90 leading-5">Точные лечебные методики для суставов, позвоночника и мышц.</p>
           <span class="mt-4 text-xs font-semibold uppercase tracking-wide opacity-80 group-hover:opacity-100">Подробнее →</span>
         </div>
 
-        <div class="service-full absolute inset-0 bg-greenDark/95 text-white p-6 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-          <button class="close-service absolute top-2 right-4 text-3xl leading-none">&times;</button>
-          <h3 class="text-2xl font-semibold mb-4">Мануальная терапия</h3>
-          <p class="text-sm leading-6 whitespace-pre-line">
+        <div class="service-full hidden">
 — это комплекс лечебных методик, направленных на восстановление подвижности суставов, снятие мышечных блоков и устранение болевых синдромов.
 
 В основе мануальной терапии:
@@ -414,13 +391,23 @@
 Процедура всегда проводится врачом с медицинским образованием, после диагностики и с учётом особенностей вашего организма.
 
 Это серьёзная, но мягкая и точная работа с вашим телом — без боли, с глубоким эффектом и ощущением лёгкости уже после первого сеанса!
-          </p>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
+
+<!-- Модалка услуг -->
+<div id="service-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/70"></div>
+  <div class="relative z-10 bg-white rounded-xl2 max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8">
+    <button id="service-close" class="absolute top-4 right-4 text-3xl leading-none">&times;</button>
+    <h3 id="service-title" class="text-2xl font-semibold mb-4"></h3>
+    <p id="service-text" class="text-sm leading-6 whitespace-pre-line"></p>
+  </div>
+</div>
+
 
 
 <!-- ================= SPECIALISTS ================= -->
@@ -968,37 +955,44 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-// ===== Services expand / collapse =====
-document.querySelectorAll('.service-card').forEach(card => {
+/* ===== Модалка услуг ===== */
+const sModal   = document.getElementById('service-modal');
+const sTitle   = document.getElementById('service-title');
+const sText    = document.getElementById('service-text');
+const sClose   = document.getElementById('service-close');
 
-  // открыть
-  card.addEventListener('click', e => {
-    if (e.target.closest('.close-service')) return; // закрытие обработаем ниже
-    if (!card.classList.contains('expanded')) {
-      card.classList.add('expanded');
-      document.documentElement.classList.add('modal-open'); // чтобы не скроллился фон на мобилках
-    }
-  });
+function openServiceModal(title, text){
+  sTitle.textContent = title;
+  sText.textContent  = text.trim();
+  sModal.classList.remove('hidden');
+  sModal.classList.add('flex');
+  document.documentElement.classList.add('modal-open');
+}
 
-  // закрыть по кнопке
-  card.querySelector('.close-service').addEventListener('click', e => {
-    e.stopPropagation();
-    card.classList.remove('expanded');
-    document.documentElement.classList.remove('modal-open');
-  });
+function closeServiceModal(){
+  sModal.classList.add('hidden');
+  sModal.classList.remove('flex');
+  document.documentElement.classList.remove('modal-open');
+}
+
+sClose.addEventListener('click', closeServiceModal);
+sModal.addEventListener('click', e => {
+  if(e.target === sModal || e.target.classList.contains('bg-black/70')) closeServiceModal();
+});
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape' && !sModal.classList.contains('hidden')) closeServiceModal();
 });
 
-// По ESC закрывать активную карточку
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    const opened = document.querySelector('.service-card.expanded');
-    if (opened) {
-      opened.classList.remove('expanded');
-      document.documentElement.classList.remove('modal-open');
-    }
-  }
+// Вешаем обработчик на карточки
+document.querySelectorAll('.service-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const title = card.querySelector('h3').textContent.trim();
+    const full  = card.querySelector('.service-full').textContent;
+    openServiceModal(title, full);
+  });
 });
 </script>
+
 
 
 
